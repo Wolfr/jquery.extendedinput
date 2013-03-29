@@ -1,4 +1,8 @@
-jquery.extendedinput
-====================
+jquery.extendedinput.js
+=======================
 
-jquery.extendedinput plugin
+jquery.extendedinput.js provides some generic markup pattern for HTML prototyping.
+
+It allows you to show or hide content based on the state of radio buttons, checkboxes, buttons or select boxes.
+
+View the <a href="demo.html">demo.
