@@ -152,23 +152,49 @@
 
     <h4>Generic data toggle</h4>
     
-    <div class="btn-group" data-toggle="true">
-        <a href="#" data-toggle-trigger="map" class="btn active">Map</a>
-        <a href="#" data-toggle-trigger="list" class="btn">List</a>
+    <div class="btn-toolbar">
+        <div class="btn-group" data-toggle="true">
+            <a href="#" data-toggle-trigger="map" class="btn active">Map</a>
+            <a href="#" data-toggle-trigger="list" class="btn">List</a>
+        </div>
     </div>
-    
     <div data-toggle-element="map">
-        [map]
+        <img src="http://placehold.it/400x400">
     </div>
 
     <div data-toggle-element="list" class="hide">
-        [list]
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+            </tr>
+        </table>
     </div>
 
 
     <h2>todo</h2>
     <ul>
-        <li>...</li>
+        <li>make this a real plugin (noconflict)</li>
     </ul>
 
     <h2>license</h2>
@@ -178,7 +204,7 @@
 
 
     <!-- Include jQuery -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+    <script src="jquery.js"></script> 
 
     <!-- Include bootstrap -->
     <link href="http:////netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
