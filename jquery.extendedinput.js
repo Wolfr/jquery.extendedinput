@@ -1,5 +1,5 @@
 /*
- * jQuery Extended Input Plugin 0.7
+ * jQuery Extended Input Plugin 0.8
  *
  * This plugin is used for prototyping purposes; it allows you to quickly show and hide
  * HTML elements using generic patterns.
@@ -16,12 +16,13 @@ $(function(){
     Pattern: show a given HTML element with data attribute
   */
 
-  $('a[data-linkedBox]').click(function(e) {
+  $('[data-open-element]').click(function(e) {
     e.preventDefault();
     // Read data attribute
-    var boxToOpen = $(this).attr('data-linkedBox');
+    var value = $(this).attr('data-open-element');
+
     // Open relevant box and add trigger class to hide box later
-    $('#'+boxToOpen).removeClass('hide').addClass('openedViaLinkedBox');
+    $('[data-element-to-be-opened="' + value + '"]').removeClass('hide').addClass('opened-via-linked-box');
   });
 
   /*
