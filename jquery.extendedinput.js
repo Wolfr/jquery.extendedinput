@@ -69,12 +69,8 @@ $(function(){
 
     // Action on check/uncheck checkbox
     if ($(this).is(':checked')) {
-      $(this).parent('li').find('.extendedInput').removeClass('hide');
-      // Show the one tied to checkbox id
       $(showId).removeClass('hide');
     } else {
-      $(this).parent('li').find('.extendedInput').addClass('hide');
-      // Hide the one tied to checkbox id
       $(showId).addClass('hide');
     }
   });
