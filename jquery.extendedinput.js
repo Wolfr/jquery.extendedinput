@@ -40,20 +40,20 @@
       // All radios will change, check which one is checked
       if ($(this).is(':checked')) {
 
-        // Alternate method through data attribute
-        var showId = 'div[data-show*="' + $(this).attr('id') + '"]';
+        // Find out which container is linked to this radio button
+        var showId = '[data-show*="' + $(this).attr('id') + '"]';
 
         // Hide all linked data fields
 
           // Find out which data fields are linked
           var radioIDs= [];
-          $(this).closest('ul, table').find('input[type="radio"]').each(function() {
+          $(this).closest('ul, ol, table, div').find('input[type="radio"]').each(function() {
             radioIDs.push(this.id);
           });
 
           $.each(radioIDs, function(index, val) {
             // Now hide all the ids in array
-            $('div[data-show*='+val+']').addClass(settings.hideClass)
+            $('[data-show*='+val+']').addClass(settings.hideClass)
           });
 
         // Except the one tied to radio id
@@ -71,7 +71,7 @@
     $('input[type="checkbox"]').change(function() {
 
       // Alternate method through data attribute
-      var showId = 'div[data-show="' + $(this).attr('id') + '"]';
+      var showId = '[data-show="' + $(this).attr('id') + '"]';
 
       // Action on check/uncheck checkbox
       if ($(this).is(':checked')) {
@@ -97,11 +97,11 @@
   
         $.each(selectOptionIDs, function(index, val) {
           // Now hide all the ids in array
-          $('div[data-show*='+val+']').addClass(settings.hideClass)
+          $('[data-show*='+val+']').addClass(settings.hideClass)
         });
 
       // Except the one tied to data attribute
-      var showId = 'div[data-show*="' + $(this).find('option:selected').attr('id') + '"]';
+      var showId = '[data-show*="' + $(this).find('option:selected').attr('id') + '"]';
       $(showId).removeClass(settings.hideClass);
 
     });

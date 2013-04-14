@@ -20,43 +20,41 @@
         width: 80%;
         max-width: 600px;
     }
-    
+
     .well.form-horizontal .form-actions {
         margin-bottom: 0;
     }
 
     /* Necessary styles */
-    
     .hide {
-        display: none; /* should be defined in bootstrap (utilities) */
+        display: none; /* if you use another class like .hidden for hiding elements set it up in the plugin options */
     }
 
     </style>
 
-        
+
 </head>
 <body>
 
     <div id="container">
 
         <h2>jquery.extendedinput.js demo</h2>
-        <p>Show extra HTML elements based on changes in form elements. Arbitrary HTML elements can be triggered to show based on a <code>data-show</code> attribute.</p>
+        <p>Show extra HTML elements based on changes in form elements. Useful in HTML prototyping.</p>
 
         <h3>Radio and checkboxes</h3>
-        <p>This pattern shows HTML elements based on selection of a radio button or check box.</p>
-    
-        <p>The link is made through a data attribute (<code>data-show</code>) and the ID of the checkbox.</p>
-    
-        <p>All input elements (radios, checkboxes) are to be in a <code>&lt;ul&gt;</code> wrapper and conform to the markup below.</p>
 
-        <p>You have to apply the initial state manually (add <code>hide</code> classes to the elements that should be hidden).</p>
-    
+        <p>This pattern shows HTML elements based on selection of a radio button or check box.</p>
+
+        <p>The "link" is made through a data attribute (<code>data-show</code>) and the ID of the radio button/checkbox.</p>
+
+        <p>Note: you have to apply the initial state manually (add your <code>hide</code> classes to the elements that should be hidden).</p>
+
         <p>Try it!</p>
-    
+
         <hr>
-    
+
         <h4>Checkboxes</h4>
-    
+
         <ul class="unstyled">
             <li>
                 <label class="checkbox" for="paymentComment1">
@@ -163,21 +161,20 @@
         <hr>
 
         <h4>Generic data show</h4>
-        
+        <p>Use <code>data-open-element</code> and <code>data-element-to-be-opened</code> attributes with the same values to show a hidden HTML element.</p>
+
         <div class="btn-toolbar">
             <a href="#" data-open-element="results" class="btn btn-primary">Display results</a>
         </div>
-        
-        
-        <div class="well hide" data-element-to-be-opened="results">
 
+        <div class="well hide" data-element-to-be-opened="results">
             <a href="#" class="btn" role="button">Download report</a>
         </div>
 
         <hr>
 
         <h4>Generic data toggle</h4>
-    
+
         <div class="btn-toolbar">
             <div class="btn-group" data-toggle="true">
                 <a href="#" data-toggle-trigger="map" class="btn active">Map</a>
@@ -217,22 +214,15 @@
             </table>
         </div>
 
-
-        <h2>todo</h2>
-        <ul>
-            <li>make this a real plugin (noconflict)</li>
-            <li>make the class name for hidden items an option</li>
-        </ul>
-
         <h2>license</h2>
         <p>
             ©2013, <a href="http://www.wolfslittlestore.be">Wolf's Little Store</a> - Free to use under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.
         </p>
-    
+
     </div>
-    
+
     <!-- Include jQuery -->
-    <script src="jquery.js"></script> 
+    <script src="jquery.js"></script>
 
     <!-- Include our plugin -->
     <script src="jquery.extendedinput.js"></script>

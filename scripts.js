@@ -2,8 +2,9 @@
   
   // Invoke our plugin with default options exposed
   $('body').extendedInput({
-    hideClass: 'hidden'
+    hideClass: 'hide'
   });
+
   // You could also write $('body').extendedInput(); if the defaults are fine
   
 })(jQuery);
