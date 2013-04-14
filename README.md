@@ -5,4 +5,4 @@ jquery.extendedinput.js provides some generic markup pattern for HTML prototypin
 
 It allows you to show or hide content based on the state of radio buttons, checkboxes, buttons or select boxes.
 
-View the <a href="demo.html">demo.
+View the <a href="index.html">demo</a>.
