@@ -11,6 +11,8 @@
 */
 
 $(function(){
+  
+  var hideClass = 'hide';
 
   /*
     Pattern: show a given HTML element with data attribute
@@ -22,7 +24,7 @@ $(function(){
     var value = $(this).attr('data-open-element');
 
     // Open relevant box and add trigger class to hide box later
-    $('[data-element-to-be-opened="' + value + '"]').removeClass('hide').addClass('opened-via-linked-box');
+    $('[data-element-to-be-opened="' + value + '"]').removeClass(hideClass).addClass('opened-via-linked-box');
   });
 
   /*
@@ -47,11 +49,11 @@ $(function(){
 
         $.each(radioIDs, function(index, val) {
           // Now hide all the ids in array
-          $('div[data-show*='+val+']').addClass('hide')
+          $('div[data-show*='+val+']').addClass(hideClass)
         });
 
       // Except the one tied to radio id
-      $(showId).removeClass('hide');
+      $(showId).removeClass(hideClass);
     }
   });
 
@@ -69,9 +71,9 @@ $(function(){
 
     // Action on check/uncheck checkbox
     if ($(this).is(':checked')) {
-      $(showId).removeClass('hide');
+      $(showId).removeClass(hideClass);
     } else {
-      $(showId).addClass('hide');
+      $(showId).addClass(hideClass);
     }
   });
 
@@ -91,12 +93,12 @@ $(function(){
     
       $.each(selectOptionIDs, function(index, val) {
         // Now hide all the ids in array
-        $('div[data-show*='+val+']').addClass('hide')
+        $('div[data-show*='+val+']').addClass(hideClass)
       });
 
     // Except the one tied to data attribute
     var showId = 'div[data-show*="' + $(this).find('option:selected').attr('id') + '"]';
-    $(showId).removeClass('hide');
+    $(showId).removeClass(hideClass);
 
   });
 
@@ -121,12 +123,12 @@ $(function(){
 
     // Hide all referenced fields
     $.each(data, function(index, val) {
-      $('[data-toggle-element*='+val+']').addClass('hide')
+      $('[data-toggle-element*='+val+']').addClass(hideClass)
     });
     
     // Except the one tied to data attribute
     var showData = '[data-toggle-element="' + $(this).attr('data-toggle-trigger') +  '"]';
-    $(showData).removeClass('hide');
+    $(showData).removeClass(hideClass);
 
   });
   
