@@ -1,5 +1,5 @@
 /*
- * jQuery Extended Input Plugin 0.8
+ * jQuery Extended Input Plugin 0.9
  *
  * This plugin is used for prototyping purposes; it allows you to quickly show and hide
  * HTML elements using generic patterns.
@@ -20,6 +20,7 @@
 
     /*
       Pattern: show a given HTML element with data attribute
+      Use data-open-element and data-element-to-be-opened attributes with the same values to show a hidden HTML element.
     */
 
     $('[data-open-element]').click(function(e) {
@@ -32,8 +33,10 @@
     });
 
     /*
-      Pattern: show a given container based on radio choice
-      This should be an HTML element with a data attribute of data-show with the same value as the checkbox id
+      Pattern: show a given HTML element based on radio button state
+
+      This should be an HTML element with a data attribute of data-show with the same value as the radio id
+      e.g. <input type="radio" id="hello"> shows <div data-show="hello" class="hide"> when it gets selected
     */
 
     $('input[type="radio"]').change(function() {
@@ -62,10 +65,8 @@
     });
 
     /*
-      Pattern: show a given container based checkbox choice
+      Pattern: show a given HTML element based on checkbox state
       This should be an HTML element with a data attribute of data-show with the same value as the checkbox id
-
-      TBD update to bootstrap markup
     */
 
     $('input[type="checkbox"]').change(function() {
@@ -82,7 +83,7 @@
     });
 
     /*
-      Pattern: show a given container based on a selected <option>
+      Pattern: show a given HTML element based on a selected <option>
     */
 
     $('select').change(function(e) {
@@ -134,8 +135,7 @@
       var showData = '[data-toggle-element="' + $(this).attr('data-toggle-trigger') +  '"]';
       $(showData).removeClass(settings.hideClass);
 
-
     });
 
   };
-})( jQuery );
+})(jQuery);
