@@ -56,7 +56,7 @@
 
           $.each(radioIDs, function(index, val) {
             // Now hide all the ids in array
-            $('[data-show*='+val+']').addClass(settings.hideClass)
+            $('[data-show*='+val+']').addClass(settings.hideClass);
           });
 
         // Except the one tied to radio id
@@ -98,7 +98,7 @@
   
         $.each(selectOptionIDs, function(index, val) {
           // Now hide all the ids in array
-          $('[data-show*='+val+']').addClass(settings.hideClass)
+          $('[data-show*='+val+']').addClass(settings.hideClass);
         });
 
       // Except the one tied to data attribute
@@ -128,7 +128,7 @@
 
       // Hide all referenced fields
       $.each(data, function(index, val) {
-        $('[data-toggle-element*='+val+']').addClass(settings.hideClass)
+        $('[data-toggle-element*='+val+']').addClass(settings.hideClass);
       });
   
       // Except the one tied to data attribute
