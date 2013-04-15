@@ -1,0 +1,37 @@
+{
+  "name": "jquery.extendedinput",
+  "version": "0.0.1",
+  "main": "./js/jquery.extendedinput.js",
+  "description": "HTML prototyping markup patterns",
+  "keywords": [
+    "html",
+    "prototyping"
+  ],
+  "url": "http://github.com/Wolfr/jquery.extendedinput",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git://github.com/Wolfr/jquery.extendedinput.git"
+    }
+  ],
+  "author": "Johan Ronsse <wolf@wolfslittlestore.be>",
+  "contributors": [],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/Wolfr/jquery.extendedinput/master/LICENSE"
+    }
+  ],
+  "dependencies": [],
+  "directories": {
+    "examples": "examples",
+    "src": "js"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-contrib-uglify": "~0.2.0"
+  }
+}
