@@ -1,0 +1,13 @@
+{
+  "name": "jquery.extendedinput",
+  "version": "0.0.1",
+  "main": "js/jquery.extendedinput.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "jquery": ">=1.8.0"
+  }
+}
