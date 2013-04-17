@@ -9,5 +9,8 @@
   ],
   "dependencies": {
     "jquery": ">=1.8.0"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "2.3.1"
   }
 }
