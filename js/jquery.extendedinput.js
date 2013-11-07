@@ -1,5 +1,5 @@
 /*
- * jQuery Extended Input Plugin 0.9
+ * jQuery Extended Input Plugin 1.0
  *
  * This plugin is used for prototyping purposes; it allows you to quickly show and hide
  * HTML elements using generic patterns.
@@ -30,6 +30,39 @@
 
       // Open relevant box and add trigger class to hide box later
       $('[data-element-to-be-opened="' + value + '"]').removeClass(settings.hideClass).addClass('opened-via-linked-box');
+    });
+
+    /*
+      Pattern: close a given HTML element with data attribute
+      Use data-close-element and data-element-to-be-closed attributes with the same values to hide a visible HTML element.
+    */
+    
+    $('[data-close-element]').click(function(e) {
+      e.preventDefault();
+      // Read data attribute
+      var value = $(this).attr('data-close-element');
+
+      // Close relevant box
+      $('[data-element-to-be-closed="' + value + '"]').addClass(settings.hideClass).addClass('opened-via-linked-box');
+    });
+    
+
+    /*
+      Pattern: toggle a given HTML element with data attribute
+      Use data-toggle-element and data-element-to-be-toggle attributes with the same values to hide a visible HTML element.
+    */
+
+    $('[data-toggle-element]').click(function(e) {
+      e.preventDefault();
+      // Read data attribute
+      var value = $(this).attr('data-toggle-element');
+
+      // Toggle relevant box
+      if ($('[data-element-to-be-toggled="' + value + '"]').is(':visible')) {
+          $('[data-element-to-be-toggled="' + value + '"]').addClass(settings.hideClass);
+      } else {
+          $('[data-element-to-be-toggled="' + value + '"]').removeClass(settings.hideClass);
+      }
     });
 
     /*

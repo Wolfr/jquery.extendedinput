@@ -185,6 +185,31 @@
         </div>
 
         <hr>
+        
+        <h4>Generic data hide</h4>
+        <p>Use <code>data-close-element</code> and <code>data-element-to-be-closed</code> attributes with the same values to hide a visible HTML element.</p>
+
+        <div class="btn-toolbar">
+            <a href="#" data-close-element="monkey" data-element-to-be-closed="monkey" class="btn btn-primary">This will hide itself</a>
+        </div>
+
+        <div class="btn-toolbar">
+            <a href="#" data-close-element="ape" class="btn btn-primary">This will hide the other button</a>
+            <a href="#" data-element-to-be-closed="ape" class="btn btn-primary">This button will be hidden</a>
+        </div>
+
+        <hr>
+
+        
+        <h4>Generic data toggle</h4>
+        <p>Use <code>data-toggle-element</code> and <code>data-element-to-be-toggled</code> attributes with the same values to hide a visible HTML element.</p>
+
+        <div class="btn-toolbar">
+            <a href="#" data-toggle-element="ape" class="btn btn-primary">This will toggle the other button</a>
+            <a href="#" data-element-to-be-toggled="ape" class="btn btn-primary">This button will be toggled</a>
+        </div>
+
+        <hr>
 
         <h4>Generic data toggle</h4>
 
@@ -243,7 +268,7 @@
         <h3>To run locally</h3>
         <ul>
             <li>Make sure you have nodejs and bower installed</li>
-            <li>Git clone the repository <code>git clone git@github.com:Wolfr/jquery.bootstrap.simple.lightbox.git</code></li>
+            <li>Git clone the repository <code>git clone git@github.com:Wolfr/jquery.extendedinput.js</code></li>
             <li>Run <code>npm install</code> and <code>bower install</code></li>
         </ul>
 

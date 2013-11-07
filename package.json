@@ -1,6 +1,6 @@
 {
   "name": "jquery.extendedinput",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "./js/jquery.extendedinput.js",
   "description": "HTML prototyping markup patterns",
   "keywords": [
