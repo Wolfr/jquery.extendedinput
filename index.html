@@ -1,300 +1,269 @@
 <!doctype html>
 <html>
 <head>
-    <title>jquery.extendedinput.js demo</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery.extendedinput.js demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="components/bootstrap-sass/bootstrap-2.3.1.min.css" type="text/css">
-    <style type="text/css" media="screen">
+  <link rel="stylesheet" href="bower_components/bootstrap-sass/dist/css/bootstrap.css" type="text/css">
+  <style type="text/css" media="screen">
 
-    /* Styles for demo */
+  /* Styles for demo */
 
-    h1, h2, h3, h4 {
-      color: #333;
-    }
+  #container {
+    margin: 0 auto;
+    max-width: 80%;
+  }
 
+  @media all and (min-width: 900px) {
     #container {
-        padding: 2% 5%;
-        margin: 0 auto;
-        width: 90%;
-        max-width: 600px;
+      max-width: 800px;
     }
-    
-    pre, code, h3 {
-     white-space: pre-wrap;       /* css-3 */
-     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-     white-space: -pre-wrap;      /* Opera 4-6 */
-     white-space: -o-pre-wrap;    /* Opera 7 */
-     word-wrap: break-word;       /* Internet Explorer 5.5+ */
-    }
+  }
+  
+  pre, code, h3 {
+   white-space: pre-wrap;       /* css-3 */
+   white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+   white-space: -pre-wrap;      /* Opera 4-6 */
+   white-space: -o-pre-wrap;    /* Opera 7 */
+   word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  }
 
-    .well.form-horizontal .form-actions {
-        margin-bottom: 0;
-    }
-    
-    .well p:only-child {
-        margin: 0;
-    }
+  /* Necessary styles */
+  .hide {
+      display: none; /* if you use another class like .hidden for hiding elements set it up in the plugin options */
+  }
 
-    /* Necessary styles */
-    .hide {
-        display: none; /* if you use another class like .hidden for hiding elements set it up in the plugin options */
-    }
-
-    </style>
-
+  </style>
 </head>
 <body>
 
-    <div id="container">
+<div id="container">
 
-        <h1>jquery.extendedinput.js</h1>
-        <p>Show extra HTML elements based on changes in form elements. Useful in HTML prototyping.</p>
-        
-        <h2>Demo</h2>
+    <h1>jquery.extendedinput.js</h1>
+    <p>Show extra HTML elements based on changes in form elements. Useful in HTML prototyping.</p>
+    
+    <h2>Demo</h2>
 
-        <h3>Radio and checkboxes</h3>
+    <h3>Radio and checkboxes</h3>
 
-        <p>This pattern shows HTML elements based on selection of a radio button or check box.</p>
+    <p>This pattern shows HTML elements based on selection of a radio button or check box.</p>
 
-        <p>The "link" is made through a data attribute (<code>data-show</code>) and the ID of the radio button/checkbox.</p>
+    <p>The "link" is made through a data attribute (<code>data-show</code>) and the ID of the radio button/checkbox.</p>
 
-        <p>Note: you have to apply the initial state manually (add your <code>hide</code> classes to the elements that should be hidden).</p>
+    <p>Note: you have to apply the initial state manually (add your <code>hide</code> classes to the elements that should be hidden).</p>
 
-        <p>Try it!</p>
+    <p>Try it!</p>
 
-        <hr>
+    <hr>
 
-        <h4>Checkboxes</h4>
+    <h4>Checkboxes</h4>
 
-        <ul class="unstyled">
-            <li>
-                <label class="checkbox" for="paymentComment1">
-                    <input type="checkbox" name="showDataFields" id="dataField1" checked>
-                    This checkbox won't do anything
-                </label>
-            </li>
-            <li>
-                <label class="checkbox" for="dataField2">
-                    <input type="checkbox" name="showDataFields" id="dataField2">
-                    This checkbox will trigger the HTML element with the same <code>data-show</code> attribute as this checkbox's <code>id</code>
-                </label>
-                <div data-show="dataField2" class="hide">
-                    <input type="text" placeholder="" />
-                </div>
-            </li>
-            <li>
-                <label for="dataField3" class="checkbox">
-                  <input type="checkbox" name="showDataFields" id="dataField3">
-                  A single checkbox can trigger a whole form
-                </label>
-                <div data-show="dataField3" class="hide">
-                    <div class="well form-horizontal">
-                        <div class="control-group">
-                            <label class="control-label">Name</label>
-                            <div class="controls">
-                                <input type="text" placeholder="Your name" />
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">E-mail</label>
-                            <div class="controls">
-                                <input type="text" placeholder="Your e-mail" />
-                            </div>
-                        </div>
-                        <div class="form-actions">
-                            <a href="#" class="btn btn-primary pull-right">Save</a>
-                            <a href="#" class="btn btn-link">Cancel</a>
-                        </div>
+    <ul class="list-unstyled">
+        <li>
+            <label class="checkbox" for="paymentComment1">
+                <input type="checkbox" name="showDataFields" id="dataField1" checked>
+                This checkbox won't do anything
+            </label>
+        </li>
+        <li>
+            <label class="checkbox" for="dataField2">
+                <input type="checkbox" name="showDataFields" id="dataField2">
+                This checkbox will trigger the HTML element with the same <code>data-show</code> attribute as this checkbox's <code>id</code>
+            </label>
+            <div data-show="dataField2" class="hide">
+                <input type="text" class="form-control" placeholder="" />
+            </div>
+        </li>
+        <li>
+            <label for="dataField3" class="checkbox">
+              <input type="checkbox" name="showDataFields" id="dataField3">
+              A single checkbox can trigger a whole form
+            </label>
+            <div data-show="dataField3" class="hide">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" placeholder="Your name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">E-mail</label>
+                        <input type="text" class="form-control" placeholder="Your e-mail" />
+                    </div>
+                    <div class="well well-sm">
+                        <a href="#" class="btn btn-primary pull-right">Save</a>
+                        <a href="#" class="btn btn-link">Cancel</a>
                     </div>
                 </div>
-            </li>
-        </ul>
-
-        <hr>
-
-        <h4>Radio buttons</h4>
-        <ul class="unstyled">
-            <li>
-                <label class="radio" for="dataField4">
-                    <input type="radio" name="showDataFields" id="dataField4" checked>
-                    show data field 4
-                </label>
-            </li>
-            <li>
-                <label class="radio" for="dataField5">
-                    <input type="radio" name="showDataFields" id="dataField5">
-                    show data field 5
-                </label>
-            </li>
-            <li>
-                <label class="radio" for="dataField6">
-                    <input type="radio" name="showDataFields" id="dataField6">
-                    show data field 6
-                </label>
-            </li>
-        </ul>
-
-        <div data-show="dataField4" class="well">
-            <p>This is data field 4</p>
-        </div>
-        <div data-show="dataField5" class="hide  well">
-            <p>This is data field 5</p>
-        </div>
-        <div data-show="dataField6" class="hide well">
-            <p>This is data field 6</p>
-        </div>
-
-        <hr>
-
-        <h4>Selects</h4>
-
-        <p>This pattern shows a linked box when an <code>&lt;option&gt;</code> is selected</p>
-
-        <label>Opties</label>
-        <select>
-            <option id="selectRed">Red</option>
-            <option id="selectBlue">Blue</option>
-            <option id="selectGreen">Green</option>
-        </select>
-
-        <div data-show="selectRed" class="well">
-            <p>You selected red.</p>
-        </div>
-
-        <div data-show="selectBlue" class="well hide">
-            <p>You selected blue.</p>
-        </div>
-
-        <div data-show="selectGreen" class="well hide">
-            <p>You selected green.</p>
-        </div>
-
-        <hr>
-
-        <h4>Generic data show</h4>
-        <p>Use <code>data-open-element</code> and <code>data-element-to-be-opened</code> attributes with the same values to show a hidden HTML element.</p>
-
-        <div class="btn-toolbar">
-            <a href="#" data-open-element="results" class="btn btn-primary">Display results</a>
-        </div>
-
-        <div class="well hide" data-element-to-be-opened="results">
-            <a href="#" class="btn" role="button">Download report</a>
-        </div>
-
-        <hr>
-        
-        <h4>Generic data hide</h4>
-        <p>Use <code>data-close-element</code> and <code>data-element-to-be-closed</code> attributes with the same values to hide a visible HTML element.</p>
-
-        <div class="btn-toolbar">
-            <a href="#" data-close-element="monkey" data-element-to-be-closed="monkey" class="btn btn-primary">This will hide itself</a>
-        </div>
-
-        <div class="btn-toolbar">
-            <a href="#" data-close-element="ape" class="btn btn-primary">This will hide the other button</a>
-            <a href="#" data-element-to-be-closed="ape" class="btn btn-primary">This button will be hidden</a>
-        </div>
-
-        <hr>
-
-        
-        <h4>Generic data toggle</h4>
-        <p>Use <code>data-toggle-element</code> and <code>data-element-to-be-toggled</code> attributes with the same values to hide a visible HTML element.</p>
-
-        <div class="btn-toolbar">
-            <a href="#" data-toggle-element="ape" class="btn btn-primary">This will toggle the other button</a>
-            <a href="#" data-element-to-be-toggled="ape" class="btn btn-primary">This button will be toggled</a>
-        </div>
-
-        <hr>
-
-        <h4>Generic data toggle</h4>
-
-        <div class="btn-toolbar">
-            <div class="btn-group" data-toggle="true">
-                <a href="#" data-toggle-trigger="map" class="btn active">Map</a>
-                <a href="#" data-toggle-trigger="list" class="btn">List</a>
             </div>
-        </div>
-        <div data-toggle-element="map">
-            <img src="http://placehold.it/400x156">
-        </div>
+        </li>
+    </ul>
 
-        <div data-toggle-element="list" class="hide">
-            <table class="table table-bordered table-striped">
-                <tr>
-                    <th>Header</th>
-                    <th>Header</th>
-                    <th>Header</th>
-                    <th>Header</th>
-                </tr>
-                <tr>
-                    <td>Data</td>
-                    <td>Data</td>
-                    <td>Data</td>
-                    <td>Data</td>
-                </tr>
-                <tr>
-                    <td>Data</td>
-                    <td>Data</td>
-                    <td>Data</td>
-                    <td>Data</td>
-                </tr>
-                <tr>
-                    <td>Data</td>
-                    <td>Data</td>
-                    <td>Data</td>
-                    <td>Data</td>
-                </tr>
-            </table>
-        </div>
+    <hr>
 
-        <hr>
+    <h4>Radio buttons</h4>
+    <ul class="list-unstyled">
+        <li>
+            <label class="radio" for="dataField4">
+                <input type="radio" name="showDataFields" id="dataField4" checked>
+                show data field 4
+            </label>
+        </li>
+        <li>
+            <label class="radio" for="dataField5">
+                <input type="radio" name="showDataFields" id="dataField5">
+                show data field 5
+            </label>
+        </li>
+        <li>
+            <label class="radio" for="dataField6">
+                <input type="radio" name="showDataFields" id="dataField6">
+                show data field 6
+            </label>
+        </li>
+    </ul>
 
-        <h2>Todo</h2>
-        <ul>
-            <li>Add real map image to make data toggle demo look nicer</li>
-        </ul>
-        
-        <hr>
-        
-        <h2>Contributing</h2>
-        
-        <p>File issues in the Github repo.</p>
-
-        <h3>To run locally</h3>
-        <ul>
-            <li>Make sure you have nodejs and bower installed</li>
-            <li>Git clone the repository <code>git clone git@github.com:Wolfr/jquery.extendedinput.js</code></li>
-            <li>Run <code>npm install</code> and <code>bower install</code></li>
-        </ul>
-
-        <h3>To build</h3>
-        <ul>
-            <li>Make sure you have grunt installed</li>
-            <li>Run <code>grunt</code></li>
-        </ul>
-
-        <hr>
-
-        <h2>License</h2>
-        <p>
-            ©2013, <a href="http://www.wolfslittlestore.be">Wolf's Little Store</a> - Free to use under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.
-        </p>
-
+    <div data-show="dataField4" class="well">
+        <p>This is data field 4</p>
+    </div>
+    <div data-show="dataField5" class="hide  well">
+        <p>This is data field 5</p>
+    </div>
+    <div data-show="dataField6" class="hide well">
+        <p>This is data field 6</p>
     </div>
 
-    <!-- Include jQuery -->
-    <script src="components/jquery/jquery.js"></script>
+    <hr>
 
-    <!-- Include our plugin -->
-    <script src="js/jquery.extendedinput.js"></script>
+    <h4>Selects</h4>
 
-    <!-- Invoke our plugin -->
-    <script src="scripts.js"></script>
+    <p>This pattern shows a linked box when an <code>&lt;option&gt;</code> is selected</p>
+
+    <label>Opties</label>
+    <select>
+        <option id="selectRed">Red</option>
+        <option id="selectBlue">Blue</option>
+        <option id="selectGreen">Green</option>
+    </select>
+
+    <div data-show="selectRed" class="well">
+        <p>You selected red.</p>
+    </div>
+
+    <div data-show="selectBlue" class="well hide">
+        <p>You selected blue.</p>
+    </div>
+
+    <div data-show="selectGreen" class="well hide">
+        <p>You selected green.</p>
+    </div>
+
+    <hr>
+
+    <h4>Generic data show</h4>
+    <p>Use <code>data-open-element</code> and <code>data-element-to-be-opened</code> attributes with the same values to show a hidden HTML element.</p>
+
+    <div class="btn-toolbar">
+        <a href="#" data-open-element="results" class="btn btn-primary">Display results</a>
+    </div>
+
+    <div class="well hide" data-element-to-be-opened="results">
+        <a href="#" class="btn" role="button">Download report</a>
+    </div>
+
+    <hr>
+    
+    <h4>Generic data hide</h4>
+    <p>Use <code>data-close-element</code> and <code>data-element-to-be-closed</code> attributes with the same values to hide a visible HTML element.</p>
+
+    <div class="btn-toolbar">
+        <a href="#" data-close-element="monkey" data-element-to-be-closed="monkey" class="btn btn-primary">This will hide itself</a>
+    </div>
+
+    <div class="btn-toolbar">
+        <a href="#" data-close-element="ape" class="btn btn-primary">This will hide the other button</a>
+        <a href="#" data-element-to-be-closed="ape" class="btn btn-primary">This button will be hidden</a>
+    </div>
+
+    <hr>
+
+    
+    <h4>Generic data toggle</h4>
+    <p>Use <code>data-toggle-element</code> and <code>data-element-to-be-toggled</code> attributes with the same values to hide a visible HTML element.</p>
+
+    <div class="btn-toolbar">
+        <a href="#" data-toggle-element="ape" class="btn btn-primary">This will toggle the other button</a>
+        <a href="#" data-element-to-be-toggled="ape" class="btn btn-primary">This button will be toggled</a>
+    </div>
+
+    <hr>
+
+    <h4>Generic data toggle</h4>
+
+    <div class="btn-group" data-toggle-group="true">
+        <a href="#" data-toggle-group-trigger="tickets" class="btn btn-default active">Tickets</a>
+        <a href="#" data-toggle-group-trigger="tasks" class="btn btn-default">Tasks</a>
+    </div>
+
+    <div data-toggle-group-element="tickets">
+      Tickets
+    </div>
+    <div data-toggle-group-element="tasks" class="hide">
+      Tasks
+    </div>
+
+    <hr>
+    
+    <h2>Changelog</h2>
+    <table class="table">
+      <tr>
+        <th>1.1</th>
+        <td>
+          <ul>
+            <li>Unified data toggle (<a href="https://github.com/Wolfr/jquery.extendedinput/issues/5">#5</a>)</li>
+            <li>Updated demo markup to use Bootstrap 3</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+    
+    <hr>
+    
+    <h2>Contributing</h2>
+    
+    <p>File issues in the Github repo.</p>
+
+    <h3>To run locally</h3>
+    <ul>
+        <li>Make sure you have node js and bower installed</li>
+        <li>Git clone the repository <code>git clone git@github.com:Wolfr/jquery.extendedinput.js</code></li>
+        <li>Run <code>npm install</code> and <code>bower install</code></li>
+    </ul>
+
+    <h3>To build</h3>
+    <ul>
+        <li>Make sure you have grunt installed</li>
+        <li>Run <code>grunt</code></li>
+    </ul>
+
+    <hr>
+
+    <h2>License</h2>
+    <p>
+        ©2013, <a href="http://www.wolfslittlestore.be">Wolf's Little Store</a> - Free to use under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.
+    </p>
+
+</div>
+
+<!-- Include jQuery -->
+<script src="bower_components/jquery/jquery.js"></script>
+
+<!-- Include our plugin -->
+<script src="js/jquery.extendedinput.js"></script>
+
+<!-- Invoke our plugin -->
+<script src="scripts.js"></script>
 
 </body>
 </html>

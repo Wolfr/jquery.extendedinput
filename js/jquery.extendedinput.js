@@ -1,5 +1,5 @@
 /*
- * jQuery Extended Input Plugin 1.0
+ * jQuery Extended Input Plugin 1.1
  *
  * This plugin is used for prototyping purposes; it allows you to quickly show and hide
  * HTML elements using generic patterns.
@@ -45,7 +45,6 @@
       // Close relevant box
       $('[data-element-to-be-closed="' + value + '"]').addClass(settings.hideClass).addClass('opened-via-linked-box');
     });
-    
 
     /*
       Pattern: toggle a given HTML element with data attribute
@@ -63,6 +62,36 @@
       } else {
           $('[data-element-to-be-toggled="' + value + '"]').removeClass(settings.hideClass);
       }
+    });
+    
+    /*
+      Data toggle group
+      Toggles between multiple sets of data
+    */
+
+    $('[data-toggle-group="true"] a').click(function(e) {
+
+      e.preventDefault();
+
+      // Manage active state
+      $(this).siblings('a').removeClass('active');
+      $(this).addClass('active');
+
+      // Store our references
+      var data = [];
+      $(this).parent().find('a[data-toggle-group-trigger]').each(function() {
+        data.push($(this).attr('data-toggle-group-trigger'));
+      });
+
+      // Hide all referenced fields
+      $.each(data, function(index, val) {
+        $('[data-toggle-group-element*='+val+']').addClass(settings.hideClass);
+      });
+  
+      // Except the one tied to data attribute
+      var showData = '[data-toggle-group-element="' + $(this).attr('data-toggle-group-trigger') +  '"]';
+      $(showData).removeClass(settings.hideClass);
+
     });
 
     /*
@@ -137,36 +166,6 @@
       // Except the one tied to data attribute
       var showId = '[data-show*="' + $(this).find('option:selected').attr('id') + '"]';
       $(showId).removeClass(settings.hideClass);
-
-    });
-
-    /*
-      Data toggle
-      Toggles between 2 sets of data using 2 links as controls
-    */
-
-    $('[data-toggle="true"] a').click(function(e) {
-
-      e.preventDefault();
-
-      // Manage active state
-      $(this).siblings('a').removeClass('active');
-      $(this).addClass('active');
-
-      // Store our references
-      var data = [];
-      $(this).parent().find('a[data-toggle-trigger]').each(function() {
-        data.push($(this).attr('data-toggle-trigger'));
-      });
-
-      // Hide all referenced fields
-      $.each(data, function(index, val) {
-        $('[data-toggle-element*='+val+']').addClass(settings.hideClass);
-      });
-  
-      // Except the one tied to data attribute
-      var showData = '[data-toggle-element="' + $(this).attr('data-toggle-trigger') +  '"]';
-      $(showData).removeClass(settings.hideClass);
 
     });
 
