@@ -41,161 +41,67 @@
 <div id="container">
 
     <h1>jquery.extendedinput.js</h1>
-    <p>Show extra HTML elements based on changes in form elements. Useful in HTML prototyping.</p>
-    
-    <h2>Demo</h2>
+    <p>Show, hide or toggle HTML elements based on <code>click</code> and <code>change</code> Javascript events. Useful in HTML prototyping.</p>
 
-    <h3>Radio and checkboxes</h3>
+    <h2>Using links</h2>
+    <p>The simplest use case is to use a link to trigger a change.</p>
 
-    <p>This pattern shows HTML elements based on selection of a radio button or check box.</p>
+    <h3>data-show</h3>
+    <a href="#" data-show="test">Show test 1</a>
+    <div data-show="test" class="hide">Hidden</div>
 
-    <p>The "link" is made through a data attribute (<code>data-show</code>) and the ID of the radio button/checkbox.</p>
+    <h3>data-hide</h3>
+    <a href="#" data-hide="test">Hide test 1</a>
+    <div data-hide="test">Hidden</div>
 
-    <p>Note: you have to apply the initial state manually (add your <code>hide</code> classes to the elements that should be hidden).</p>
-
-    <p>Try it!</p>
-
-    <hr>
-
-    <h4>Checkboxes</h4>
-
-    <ul class="list-unstyled">
-        <li>
-            <label class="checkbox" for="paymentComment1">
-                <input type="checkbox" name="showDataFields" id="dataField1" checked>
-                This checkbox won't do anything
-            </label>
-        </li>
-        <li>
-            <label class="checkbox" for="dataField2">
-                <input type="checkbox" name="showDataFields" id="dataField2">
-                This checkbox will trigger the HTML element with the same <code>data-show</code> attribute as this checkbox's <code>id</code>
-            </label>
-            <div data-show="dataField2" class="hide">
-                <input type="text" class="form-control" placeholder="" />
-            </div>
-        </li>
-        <li>
-            <label for="dataField3" class="checkbox">
-              <input type="checkbox" name="showDataFields" id="dataField3">
-              A single checkbox can trigger a whole form
-            </label>
-            <div data-show="dataField3" class="hide">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <div class="form-group">
-                        <label class="form-label">Name</label>
-                        <input type="text" class="form-control" placeholder="Your name" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">E-mail</label>
-                        <input type="text" class="form-control" placeholder="Your e-mail" />
-                    </div>
-                    <div class="well well-sm">
-                        <a href="#" class="btn btn-primary pull-right">Save</a>
-                        <a href="#" class="btn btn-link">Cancel</a>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
+    <h3>data-toggle</h3>
+    <a href="#" data-toggle-trigger="test">Toggle test 1</a>
+    <div data-toggle="test" class="hide">Hidden</div>
 
     <hr>
 
-    <h4>Radio buttons</h4>
-    <ul class="list-unstyled">
-        <li>
-            <label class="radio" for="dataField4">
-                <input type="radio" name="showDataFields" id="dataField4" checked>
-                show data field 4
-            </label>
-        </li>
-        <li>
-            <label class="radio" for="dataField5">
-                <input type="radio" name="showDataFields" id="dataField5">
-                show data field 5
-            </label>
-        </li>
-        <li>
-            <label class="radio" for="dataField6">
-                <input type="radio" name="showDataFields" id="dataField6">
-                show data field 6
-            </label>
-        </li>
-    </ul>
+    <h2>Using checkboxes</h2>
 
-    <div data-show="dataField4" class="well">
-        <p>This is data field 4</p>
-    </div>
-    <div data-show="dataField5" class="hide  well">
-        <p>This is data field 5</p>
-    </div>
-    <div data-show="dataField6" class="hide well">
-        <p>This is data field 6</p>
-    </div>
+    <h3>data-show</h3>
+    <input type="checkbox" data-show="test2">
+    <div data-show="test2" class="hide">Hidden</div>
+
+    <h3>data-hide</h3>
+    <input type="checkbox" data-hide="test2">
+    <div data-hide="test2">Hidden</div>
+
+    <h3>data-toggle</h3>
+    <input type="checkbox" data-toggle-trigger="test2">
+    <div data-toggle="test2" class="hide">Hidden</div>
 
     <hr>
 
-    <h4>Selects</h4>
+    <h2>Using radio buttons</h2>
 
-    <p>This pattern shows a linked box when an <code>&lt;option&gt;</code> is selected</p>
+    <h3>data-show</h3>
+    <input type="radio" data-show="test3">
+    <div data-show="test3" class="hide">Hidden</div>
 
-    <label>Opties</label>
+    <h3>data-hide</h3>
+    <input type="radio" data-hide="test3">
+    <div data-hide="test3">Hidden</div>
+
+    <h3>data-toggle</h3>
+    <input type="radio" data-toggle-trigger="test3">
+    <div data-toggle="test3" class="hide">Hidden</div>
+
+    <hr>
+
+    <h2>Using select elements</h2>
+
+    <h3>data-show</h3>
     <select>
-        <option id="selectRed">Red</option>
-        <option id="selectBlue">Blue</option>
-        <option id="selectGreen">Green</option>
+      <option>Choose an option</option>
+      <option data-show="apples">Apples</option>
+      <option data-show="bananas">Bananas</option>
     </select>
-
-    <div data-show="selectRed" class="well">
-        <p>You selected red.</p>
-    </div>
-
-    <div data-show="selectBlue" class="well hide">
-        <p>You selected blue.</p>
-    </div>
-
-    <div data-show="selectGreen" class="well hide">
-        <p>You selected green.</p>
-    </div>
-
-    <hr>
-
-    <h4>Generic data show</h4>
-    <p>Use <code>data-open-element</code> and <code>data-element-to-be-opened</code> attributes with the same values to show a hidden HTML element.</p>
-
-    <div class="btn-toolbar">
-        <a href="#" data-open-element="results" class="btn btn-primary">Display results</a>
-    </div>
-
-    <div class="well hide" data-element-to-be-opened="results">
-        <a href="#" class="btn" role="button">Download report</a>
-    </div>
-
-    <hr>
-    
-    <h4>Generic data hide</h4>
-    <p>Use <code>data-close-element</code> and <code>data-element-to-be-closed</code> attributes with the same values to hide a visible HTML element.</p>
-
-    <div class="btn-toolbar">
-        <a href="#" data-close-element="monkey" data-element-to-be-closed="monkey" class="btn btn-primary">This will hide itself</a>
-    </div>
-
-    <div class="btn-toolbar">
-        <a href="#" data-close-element="ape" class="btn btn-primary">This will hide the other button</a>
-        <a href="#" data-element-to-be-closed="ape" class="btn btn-primary">This button will be hidden</a>
-    </div>
-
-    <hr>
-
-    
-    <h4>Generic data toggle</h4>
-    <p>Use <code>data-toggle-element</code> and <code>data-element-to-be-toggled</code> attributes with the same values to hide a visible HTML element.</p>
-
-    <div class="btn-toolbar">
-        <a href="#" data-toggle-element="ape" class="btn btn-primary">This will toggle the other button</a>
-        <a href="#" data-element-to-be-toggled="ape" class="btn btn-primary">This button will be toggled</a>
-    </div>
+    <div data-show="apples" class="hide">all Apples</div>
+    <div data-show="bananas" class="hide">all Bananas</div>
 
     <hr>
 
@@ -218,11 +124,27 @@
     <h2>Changelog</h2>
     <table class="table">
       <tr>
-        <th>1.1</th>
+        <th>2.0.0</th>
+        <td>
+          <ul>
+            <li>This release cleans up the functionality provided in jquery.extendedinput 1.x. The main focus is on making the plugin simpler to use. The syntax to show, hide and toggle was simplified. The only attributes you will ever need are <code>data-show</code>,<code>data-hide</code> and <code>data-toggle</code>.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>1.1.0</th>
         <td>
           <ul>
             <li>Unified data toggle (<a href="https://github.com/Wolfr/jquery.extendedinput/issues/5">#5</a>)</li>
             <li>Updated demo markup to use Bootstrap 3</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>1.0.0</th>
+        <td>
+          <ul>
+            <li>Initial release</li>
           </ul>
         </td>
       </tr>

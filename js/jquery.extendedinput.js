@@ -1,7 +1,8 @@
 /*
- * jQuery Extended Input Plugin 1.1
+ * jQuery Extended Input Plugin 2.0.0
  *
- * This plugin is used for prototyping purposes; it allows you to quickly show and hide
+ * This plugin is used for prototyping purposes;
+ * it allows you to quickly show, hide and toggle
  * HTML elements using generic patterns.
  *
  * www.wolfslittlestore.be
@@ -20,16 +21,19 @@
 
     /*
       Pattern: show a given HTML element with data attribute
-      Use data-open-element and data-element-to-be-opened attributes with the same values to show a hidden HTML element.
+      Use data-open-element and data-element-to-be-opened attributes with the same values to show a hidden HTML element
     */
-
-    $('[data-open-element]').click(function(e) {
-      e.preventDefault();
+    
+    $('[data-show]').on('click', function(e) {
+      // If we are triggering a link with # prevent the default behavior of jumping to top of body
+      if ($(this).attr('href') === '#') {
+        e.preventDefault();
+      }
       // Read data attribute
-      var value = $(this).attr('data-open-element');
+      var value = $(this).attr('data-show');
 
       // Open relevant box and add trigger class to hide box later
-      $('[data-element-to-be-opened="' + value + '"]').removeClass(settings.hideClass).addClass('opened-via-linked-box');
+      $('[data-show="' + value + '"]').removeClass(settings.hideClass);
     });
 
     /*
@@ -37,31 +41,62 @@
       Use data-close-element and data-element-to-be-closed attributes with the same values to hide a visible HTML element.
     */
     
-    $('[data-close-element]').click(function(e) {
-      e.preventDefault();
+    $('[data-hide]').on('click', function(e) {
+      // If we are triggering a link with # prevent the default behavior of jumping to top of body
+      if ($(this).attr('href') === '#') {
+        e.preventDefault();
+      }
       // Read data attribute
-      var value = $(this).attr('data-close-element');
+      var value = $(this).attr('data-hide');
 
-      // Close relevant box
-      $('[data-element-to-be-closed="' + value + '"]').addClass(settings.hideClass).addClass('opened-via-linked-box');
+      // Close relevant box but not yourself
+      $(this).removeAttr('data-hide');
+      $('[data-hide="' + value + '"]').addClass(settings.hideClass);
     });
 
     /*
       Pattern: toggle a given HTML element with data attribute
-      Use data-toggle-element and data-element-to-be-toggle attributes with the same values to hide a visible HTML element.
+      Use data-toggle-element and data-element-to-be-toggle attributes with the same values to toggle a visible HTML element.
     */
 
-    $('[data-toggle-element]').click(function(e) {
-      e.preventDefault();
-      // Read data attribute
-      var value = $(this).attr('data-toggle-element');
+    $('[data-toggle-trigger]').on('click', function(e) {
 
-      // Toggle relevant box
-      if ($('[data-element-to-be-toggled="' + value + '"]').is(':visible')) {
-          $('[data-element-to-be-toggled="' + value + '"]').addClass(settings.hideClass);
-      } else {
-          $('[data-element-to-be-toggled="' + value + '"]').removeClass(settings.hideClass);
+      // If we are triggering a link with # prevent the default behavior of jumping to top of body
+      if ($(this).attr('href') === '#') {
+        e.preventDefault();
       }
+
+      // Read data attribute
+      var value = $(this).attr('data-toggle-trigger');
+      // Toggle relevant box
+      if ($('[data-toggle="' + value + '"]').is(':visible')) {
+          $('[data-toggle="' + value + '"]').addClass(settings.hideClass);
+      } else {
+          $('[data-toggle="' + value + '"]').removeClass(settings.hideClass);
+      }
+    });
+
+    /*
+      Pattern: show a given HTML element with a data-show attribute based on a selected <option>
+    */
+
+    $('select').change(function(e) {
+
+      // Find out which data-show attributes are linked to options
+      var linkedData= [];
+      $(this).find('option').each(function() {
+        linkedData.push($(this).attr('data-show'));
+      });
+
+      $.each(linkedData, function(index, val) {
+        // Now hide all the linked data-show elements
+        $('[data-show*='+val+']').addClass(settings.hideClass);
+      });
+
+      // Except the one tied to data attribute
+      var showLinkedData = '[data-show*="' + $(this).find('option:selected').attr('data-show') + '"]';
+      $(showLinkedData).removeClass(settings.hideClass);
+
     });
     
     /*
@@ -91,81 +126,6 @@
       // Except the one tied to data attribute
       var showData = '[data-toggle-group-element="' + $(this).attr('data-toggle-group-trigger') +  '"]';
       $(showData).removeClass(settings.hideClass);
-
-    });
-
-    /*
-      Pattern: show a given HTML element based on radio button state
-
-      This should be an HTML element with a data attribute of data-show with the same value as the radio id
-      e.g. <input type="radio" id="hello"> shows <div data-show="hello" class="hide"> when it gets selected
-    */
-
-    $('input[type="radio"]').change(function() {
-      // All radios will change, check which one is checked
-      if ($(this).is(':checked')) {
-
-        // Find out which container is linked to this radio button
-        var showId = '[data-show*="' + $(this).attr('id') + '"]';
-
-        // Hide all linked data fields
-
-          // Find out which data fields are linked
-          var radioIDs= [];
-          $(this).closest('ul, ol, table, div').find('input[type="radio"]').each(function() {
-            radioIDs.push(this.id);
-          });
-
-          $.each(radioIDs, function(index, val) {
-            // Now hide all the ids in array
-            $('[data-show*='+val+']').addClass(settings.hideClass);
-          });
-
-        // Except the one tied to radio id
-        $(showId).removeClass(settings.hideClass);
-      }
-    });
-
-    /*
-      Pattern: show a given HTML element based on checkbox state
-      This should be an HTML element with a data attribute of data-show with the same value as the checkbox id
-    */
-
-    $('input[type="checkbox"]').change(function() {
-
-      // Alternate method through data attribute
-      var showId = '[data-show="' + $(this).attr('id') + '"]';
-
-      // Action on check/uncheck checkbox
-      if ($(this).is(':checked')) {
-        $(showId).removeClass(settings.hideClass);
-      } else {
-        $(showId).addClass(settings.hideClass);
-      }
-    });
-
-    /*
-      Pattern: show a given HTML element based on a selected <option>
-    */
-
-    $('select').change(function(e) {
-
-      // Hide all linked data fields
-
-        // Find out which data fields are linked
-        var selectOptionIDs= [];
-        $(this).find('option').each(function() {
-          selectOptionIDs.push(this.id);
-        });
-  
-        $.each(selectOptionIDs, function(index, val) {
-          // Now hide all the ids in array
-          $('[data-show*='+val+']').addClass(settings.hideClass);
-        });
-
-      // Except the one tied to data attribute
-      var showId = '[data-show*="' + $(this).find('option:selected').attr('id') + '"]';
-      $(showId).removeClass(settings.hideClass);
 
     });
 
