@@ -1,5 +1,5 @@
 /*
- * jQuery Extended Input Plugin 2.0.0
+ * jQuery Extended Input Plugin 2.1.0
  *
  * This plugin is used for prototyping purposes;
  * it allows you to quickly show, hide and toggle
@@ -55,6 +55,15 @@
     });
 
     /*
+      Pattern: hide a given HTML element on click
+      Use the keyword "self"
+    */
+    
+    $('[data-hide="self"]').on('click', function(e) {
+      $(this).addClass(settings.hideClass);
+    });
+
+    /*
       Pattern: toggle a given HTML element with data attribute
       Use data-toggle-element and data-element-to-be-toggle attributes with the same values to toggle a visible HTML element.
     */
@@ -98,7 +107,7 @@
       $(showLinkedData).removeClass(settings.hideClass);
 
     });
-    
+
     /*
       Data toggle group
       Toggles between multiple sets of data
