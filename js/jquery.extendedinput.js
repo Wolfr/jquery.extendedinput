@@ -103,7 +103,7 @@
       });
 
       // Except the one tied to data attribute
-      var showLinkedData = '[data-show*="' + $(this).find('option:selected').attr('data-show') + '"]';
+      var showLinkedData = '[data-show="' + $(this).find('option:selected').attr('data-show') + '"]';
       $(showLinkedData).removeClass(settings.hideClass);
 
     });
