@@ -1,5 +1,5 @@
 /*
- * jQuery Extended Input Plugin 2.1.2
+ * jQuery Extended Input Plugin 2.1.4
  *
  * This plugin is used for prototyping purposes;
  * it allows you to quickly show, hide and toggle
@@ -21,7 +21,8 @@
 
     /*
       Pattern: show a given HTML element with data attribute
-      Use data-open-element and data-element-to-be-opened attributes with the same values to show a hidden HTML element
+      Usage: Add a data-show attribute on 2 HTML elements. Add a hide class to the element you want to show.
+             When the visible element is clicked it will show the other element.
     */
     
     $('[data-show]').on('click', function(e) {
@@ -38,7 +39,7 @@
 
     /*
       Pattern: close a given HTML element with data attribute
-      Use data-close-element and data-element-to-be-closed attributes with the same values to hide a visible HTML element.
+      Usage: Add a data-hide attribute on 2 HTML elements. When one of the elements is clicked it will hide the other.
     */
     
     $('[data-hide]').on('click', function(e) {
@@ -56,7 +57,7 @@
 
     /*
       Pattern: hide a given HTML element on click
-      Use the keyword "self"
+      Usage: Use the keyword "self" in data-hide to hide an element on click.
     */
     
     $('[data-hide="self"]').on('click', function(e) {
@@ -65,7 +66,7 @@
 
     /*
       Pattern: toggle a given HTML element with data attribute
-      Use data-toggle-trigger and data-toggle attributes with the same values to toggle an HTML element.
+      Usage: Use data-toggle-trigger and data-toggle attributes with the same values to toggle an HTML element.
     */
 
     $('[data-toggle-trigger]').on('click', function(e) {
@@ -87,6 +88,9 @@
 
     /*
       Pattern: show a given HTML element with a data-show attribute based on a selected <option>
+      Usage: add a data-show attribute to an option within a select.
+            This references another element with a data-show attribute that is hidden.
+            When the given option is clicked, it will show the hidden element.
     */
 
     $('select').change(function(e) {
