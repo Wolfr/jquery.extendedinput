@@ -65,7 +65,7 @@
 
     /*
       Pattern: toggle a given HTML element with data attribute
-      Use data-toggle-trigger and data-tiggke attributes with the same values to toggle an HTML element.
+      Use data-toggle-trigger and data-toggle attributes with the same values to toggle an HTML element.
     */
 
     $('[data-toggle-trigger]').on('click', function(e) {
